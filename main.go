@@ -12,14 +12,9 @@ import (
 
 func main() {
 	icons := map[string]string{
-		"failure":   "‼️‼️ ",
-		"cancelled": "⚠️⚠️ ",
-		"success":   "💯✅ ",
-	}
-	text := map[string]string{
-		"failure":   "Eda Mone Nee Pettu",
-		"cancelled": "Enthupatti Babymole?",
-		"success":   "Adipoli Monuse",
+		"failure":   "❗️❗️❗️Eda Mone Nee Pettu ",
+		"cancelled": "⚠️⚠️⚠️Enthupatti Babymole?",
+		"success":   "💯💯👍👍Adipoli Monuse",
 	}
 	var (
 		token  = os.Getenv("TG_TOKEN")
@@ -32,7 +27,6 @@ func main() {
 	)
 	c := tbot.NewClient(token, http.DefaultClient, "https://api.telegram.org")
 	icon := icons[strings.ToLower(status)]
-	texts := text[strings.ToLower(status)]
 	link := fmt.Sprintf("https://github.com/%s/commit/%s/checks", repo, commit)
 
 	msg := fmt.Sprintf(`%s*%s*: %s ([%s](%s))    **%s**`, icon, status, repo, workflow, link, texts)
