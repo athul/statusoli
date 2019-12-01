@@ -4,9 +4,7 @@ WORKDIR /app
 
 COPY . /app
 
-COPY go.mod .
-COPY go.sum .
-RUN go mod download
+RUN go get github.com/yanzay/tbot/v2
 
 RUN CGO_ENABLED=0 go build -v -o statusoli .
 
