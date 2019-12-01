@@ -14,11 +14,16 @@ import (
 func main() {
 	// Just to do it a bit fancy
 	icons := map[string]string{
-		"failure":   "❗ Eda Mone Nee pettu",
+		"failure":   "❗️",
 		"cancelled": "❕",
 		"success":   "✅ Adipoli Mounse",
 	}
-
+	texts:=map[string]string{
+		"failure":   "Eda Mone Nee pettu",
+		"cancelled": "Enthpattiyeda Uvve?",
+		"success":   "Adipoli Mounse",
+	}
+		
 	var (
 		// inputs provided by Github Actions runtime
 		// we should define them in action.yml
@@ -35,10 +40,12 @@ func main() {
 	// Create Telegram client using token
 	c := tbot.NewClient(token, http.DefaultClient, "https://api.telegram.org")
 
-	icon := icons[strings.ToLower(status)] // which icon to use?
+	icon := icons[strings.ToLower(status)]
+	text=texts[strings.ToLower(status)]// which icon to use?
 	link := fmt.Sprintf("https://github.com/%s/commit/%s/checks", repo, commit)
 	// Prepare message to send
-	msg := fmt.Sprintf(`%s*%s*: %s ([%s](%s))`, icon, status, repo, workflow, link)
+	msg := fmt.Sprintf(`%s
+	%s  *%s*: %s ([%s](%s))`, icon, status, repo, workflow, link)
 
 	// Send to chat using Markdown format
 	_, err := c.SendMessage(chat, msg, tbot.OptParseModeMarkdown)
