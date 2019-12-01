@@ -10,6 +10,6 @@ RUN CGO_ENABLED=0 go build -v -o statusoli .
 
 FROM alpine:latest
 
-COPY --from=builder /app/statuoli /statuoli
+COPY --from=builder /app/statusoli /statusoli
 
 ENTRYPOINT ["/statusoli"]
