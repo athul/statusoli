@@ -14,14 +14,14 @@ import (
 func main() {
 	// Just to do it a bit fancy
 	icons := map[string]string{
-		"failure":   "❗️",
-		"cancelled": "❕",
-		"success":   "✅ Adipoli Mounse",
+		"failure":   "❗️❗️❗️",
+		"cancelled": "❕❕❕",
+		"success":   "✅✅✅",
 	}
 	texts:=map[string]string{
 		"failure":   "Eda Mone Nee pettu",
 		"cancelled": "Enthpattiyeda Uvve?",
-		"success":   "Adipoli Mounse",
+		"success":   "Adipoli Mounse ath Work aayi",
 	}
 		
 	var (
