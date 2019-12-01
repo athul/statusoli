@@ -18,7 +18,7 @@ func main(){
   text:=map[string]string{
     "failure":"Eda Mone Nee Pettu",
     "cancelled":"Enthupatti Babymole?",
-    "success": "Adipoli Monuse"
+    "success": "Adipoli Monuse",
     }
 	var(
 		token=os.Getenv("TG_TOKEN")
