@@ -45,7 +45,7 @@ func main() {
 	link := fmt.Sprintf("https://github.com/%s/commit/%s/checks", repo, commit)
 	// Prepare message to send
 	msg := fmt.Sprintf(`%s
-	%s  *%s*: %s ([%s](%s))`, icon, status, repo, workflow, link)
+	%s  *%s*: %s ([%s](%s))`, icon, text, status, repo, workflow, link)
 
 	// Send to chat using Markdown format
 	_, err := c.SendMessage(chat, msg, tbot.OptParseModeMarkdown)
