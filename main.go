@@ -14,9 +14,9 @@ import (
 func main() {
 	// Just to do it a bit fancy
 	icons := map[string]string{
-		"failure":   "❗",
+		"failure":   "❗ Eda Mone Nee pettu",
 		"cancelled": "❕",
-		"success":   "✅",
+		"success":   "✅ Adipoli Mounse",
 	}
 
 	var (
