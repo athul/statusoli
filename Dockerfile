@@ -6,7 +6,7 @@ COPY . /app
 
 RUN go get github.com/yanzay/tbot/v2
 
-RUN go build -v -o statusoli .
+RUN CGO_ENABLED=0 go build -v -o statusoli .
 
 FROM alpine:latest
 
