@@ -34,7 +34,7 @@ func main(){
 	link:=fmt.Sprintf("https://github.com/%s/commit/%s/checks",repo,commit)
 
 	msg:=fmt.Sprintf(`%s*%s*: %s ([%s](%s))
-  **%s**`, icon, status, repo, workflow, link,text)
+			  **%s**`, icon, status, repo, workflow, link, text)
 
 	_, err:=c.SendMessage(chat,msg,tbot.OptParseModeMarkdown)
 	if err != nil {
