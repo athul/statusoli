@@ -32,9 +32,10 @@ func main() {
 	)
 	c := tbot.NewClient(token, http.DefaultClient, "https://api.telegram.org")
 	icon := icons[strings.ToLower(status)]
+	texts := text[strings.ToLower(status)]
 	link := fmt.Sprintf("https://github.com/%s/commit/%s/checks", repo, commit)
 
-	msg := fmt.Sprintf(`%s*%s*: %s ([%s](%s))    **%s**`, icon, status, repo, workflow, link, text)
+	msg := fmt.Sprintf(`%s*%s*: %s ([%s](%s))    **%s**`, icon, status, repo, workflow, link, texts)
 
 	_, err := c.SendMessage(chat, msg, tbot.OptParseModeMarkdown)
 	if err != nil {
