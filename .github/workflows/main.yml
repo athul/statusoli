@@ -20,7 +20,7 @@ jobs:
       run: go build -v .
       
     - name: Statusoli
-      uses: athul/statusoli@0.1.0
+      uses: athul/statusoli@0.1.1
       if: always()
       with:
         chat: ${{ secrets.chat }}
