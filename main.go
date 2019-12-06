@@ -19,9 +19,9 @@ func main() {
 		"success":   "✅✅✅",
 	}
 	texts:=map[string]string{
-		"failure":   "Eda Mone Nee pettu",
-		"cancelled": "Enthpattiyeda Uvve?",
-		"success":   "Adipoli Mounse ath Work aayi",
+		"failure":   "എടാ മോനെ നീ പെട്ടു",
+		"cancelled": "എന്തുപറ്റിയെടാ ഉവ്വേ ?",
+		"success":   "അടിപൊളി മോനെ അത് വർക്ക് ആയി ",
 	}
 		
 	var (
@@ -35,6 +35,8 @@ func main() {
 		workflow = os.Getenv("GITHUB_WORKFLOW")
 		repo     = os.Getenv("GITHUB_REPOSITORY")
 		commit   = os.Getenv("GITHUB_SHA")
+		person =os.Getenv("GITHUB_ACTOR")
+		event=os.Getenv("GITHUB_EVENT_NAME"
 	)
 
 	// Create Telegram client using token
@@ -45,7 +47,7 @@ func main() {
 	link := fmt.Sprintf("https://github.com/%s/commit/%s/checks", repo, commit)
 	// Prepare message to send
 	msg := fmt.Sprintf(`%s
-	%s  *%s*: %s ([%s](%s))`, icon, text, status, repo, workflow, link)
+	%s  *%s*: %s ([%s](%s)) by *%s* since they trigerred a *%s*`, icon, text, status, repo, workflow, link,person,event)
 
 	// Send to chat using Markdown format
 	_, err := c.SendMessage(chat, msg, tbot.OptParseModeMarkdown)
