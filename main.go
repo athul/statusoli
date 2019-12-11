@@ -7,16 +7,16 @@ import (
 	"net/http"
 	"os"
 	"strings"
-
+	"time"
 	"github.com/yanzay/tbot/v2"
 )
 
 func main() {
 	// Just to do it a bit fancy
 	icons := map[string]string{
-		"failure":   "❗️❗️❗️",
-		"cancelled": "❕❕❕",
-		"success":   "✅✅✅",
+		"failure":   "❗️",
+		"cancelled": "❕",
+		"success":   "✅",
 	}
 	texts:=map[string]string{
 		"failure":   "എടാ മോനെ നീ പെട്ടു",
@@ -29,14 +29,14 @@ func main() {
 		// we should define them in action.yml
 		token  = os.Getenv("INPUT_TOKEN")
 		chat   = os.Getenv("INPUT_CHAT")
-		status = os.Getenv("INPUT_STATUS")
-
+		//status = os.Getenv("INPUT_STATUS")
+		//now=time.now()
 		// github environment context
-		workflow = os.Getenv("GITHUB_WORKFLOW")
+		//workflow = os.Getenv("GITHUB_WORKFLOW")
 		repo     = os.Getenv("GITHUB_REPOSITORY")
-		commit   = os.Getenv("GITHUB_SHA")
+		//commit   = os.Getenv("GITHUB_SHA")
 		person	 =os.Getenv("GITHUB_ACTOR")
-		event	 =os.Getenv("GITHUB_EVENT_NAME")
+		//event	 =os.Getenv("GITHUB_EVENT_NAME")
 	)
 
 	// Create Telegram client using token
@@ -44,10 +44,11 @@ func main() {
 
 	icon := icons[strings.ToLower(status)]
 	text:=texts[strings.ToLower(status)]// which icon to use?
-	link := fmt.Sprintf("https://github.com/%s/commit/%s/checks", repo, commit)
+	//link := fmt.Sprintf("https://github.com/%s/commit/%s/checks", repo, commit)
 	// Prepare message to send
 	msg := fmt.Sprintf(`%s
-	%s  *%s*: %s ([%s](%s)) by *%s* since they trigerred a *%s*`, icon, text, status, repo, workflow, link, person, event)
+	%s  
+	[%s](https://github.com/%s) starred *%s*`, icon, text,person,person,repo )
 
 	// Send to chat using Markdown format
 	_, err := c.SendMessage(chat, msg, tbot.OptParseModeMarkdown)
