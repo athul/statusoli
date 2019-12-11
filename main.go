@@ -29,7 +29,7 @@ func main() {
 		// we should define them in action.yml
 		token  = os.Getenv("INPUT_TOKEN")
 		chat   = os.Getenv("INPUT_CHAT")
-		//status = os.Getenv("INPUT_STATUS")
+		status = os.Getenv("INPUT_STATUS")
 		//now=time.now()
 		// github environment context
 		//workflow = os.Getenv("GITHUB_WORKFLOW")
