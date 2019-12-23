@@ -16,12 +16,12 @@ func main() {
 	icons := map[string]string{
 		"failure":   "❗️",
 		"cancelled": "❕",
-		"success":   "✅",
+		"success":   "🌟✨",
 	}
 	texts:=map[string]string{
 		"failure":   "എടാ മോനെ നീ പെട്ടു",
 		"cancelled": "എന്തുപറ്റിയെടാ ഉവ്വേ ?",
-		"success":   "അടിപൊളി മോനെ അത് വർക്ക് ആയി ",
+		"success":   "എടാ മോനെ ആരോ ⭐️⭐️⭐️ ചെയ്തു  ",
 	}
 		
 	var (
@@ -46,9 +46,12 @@ func main() {
 	text:=texts[strings.ToLower(status)]// which icon to use?
 	//link := fmt.Sprintf("https://github.com/%s/commit/%s/checks", repo, commit)
 	// Prepare message to send
-	msg := fmt.Sprintf(`%s
+	msg := fmt.Sprintf(`
+	%s
 	%s  
-	[%s](https://github.com/%s) starred *%s*`, icon, text,person,person,repo )
+	Person: 	[%s](https://github.com/%s) 
+	Repository 	*%s*
+	`, icon, text,person,person,repo )
 
 	// Send to chat using Markdown format
 	_, err := c.SendMessage(chat, msg, tbot.OptParseModeMarkdown)
