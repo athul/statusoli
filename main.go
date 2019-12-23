@@ -46,8 +46,15 @@ func main() {
 	text:=texts[strings.ToLower(status)]// which icon to use?
 	link := fmt.Sprintf("https://github.com/%s/commit/%s/checks", repo, commit)
 	// Prepare message to send
-	msg := fmt.Sprintf(`%s
-	%s  *%s*: %s ([%s](%s)) by *%s* since they trigerred a *%s*`, icon, text, status, repo, workflow, link, person, event)
+	msg := fmt.Sprintf(`
+	%s
+	%s 
+	
+	Status: 	*%s*
+	Repository:  	 %s 
+	Link:		[%s](%s)
+	Triggered by:   *%s* 
+	Event:		 *%s*`, icon, text, status, repo, workflow, link, person, event)
 
 	// Send to chat using Markdown format
 	_, err := c.SendMessage(chat, msg, tbot.OptParseModeMarkdown)
