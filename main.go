@@ -38,16 +38,15 @@ func main() {
 	c := tbot.NewClient(token, http.DefaultClient, "https://api.telegram.org")
 
 	icon := icons[strings.ToLower(status)]
-	text:=texts[strings.ToLower(status)]// which icon to use?
+	//text:=texts[strings.ToLower(status)]// which icon to use?
 	//link := fmt.Sprintf("https://github.com/%s/commit/%s/checks", repo, commit)
 	// Prepare message to send
 	msg := fmt.Sprintf(`
 	%s Run 
-	-----New Issue-----   
-	New: %s
+	-----New %s-----   
 	Person: 	[%s](https://github.com/%s) 
 	Repository 	*%s*
-	`, icon, text,event, person,person,repo )
+	`, icon,event, person,person,repo )
 
 	// Send to chat using Markdown format
 	_, err := c.SendMessage(chat, msg, tbot.OptParseModeMarkdown)
