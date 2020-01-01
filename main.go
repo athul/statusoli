@@ -44,12 +44,14 @@ func main() {
 	msg := fmt.Sprintf(`
 	Run %s
 	
-	-----New %s [opened/closed/reopened/assigned]----- 
+	-----New %s [ope/clo/reop/assi]----- 
 	
 	Person: 	[%s](https://github.com/%s) 
 	
-	Repository: 	[%s]*%s*
-	Workflow:	%s
+	Repository: 	[%s](%s)
+
+	Workflow:	*%s*
+	
 	`, icon,event, person,person,repo,link,workflow )
 
 	// Send to chat using Markdown format
