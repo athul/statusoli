@@ -43,10 +43,14 @@ func main() {
 	// Prepare message to send
 	msg := fmt.Sprintf(`
 	Run %s
-	-----New %s [opened/closed/reopened/assigned]-----   
+	
+	-----New %s [opened/closed/reopened/assigned]----- 
+	
 	Person: 	[%s](https://github.com/%s) 
-	Repository 	[%s]*%s*
-	`, icon,event, person,person,repo,link )
+	
+	Repository: 	[%s]*%s*
+	Workflow:	%s
+	`, icon,event, person,person,repo,link,workflow )
 
 	// Send to chat using Markdown format
 	_, err := c.SendMessage(chat, msg, tbot.OptParseModeMarkdown)
