@@ -27,7 +27,7 @@ func main() {
 		status = os.Getenv("INPUT_STATUS")
 		//now=time.now()
 		// github environment context
-		//workflow = os.Getenv("GITHUB_WORKFLOW")
+		workflow = os.Getenv("GITHUB_WORKFLOW")
 		repo     = os.Getenv("GITHUB_REPOSITORY")
 		//commit   = os.Getenv("GITHUB_SHA")
 		person	 =os.Getenv("GITHUB_ACTOR")
@@ -39,14 +39,14 @@ func main() {
 
 	icon := icons[strings.ToLower(status)]
 	//text:=texts[strings.ToLower(status)]// which icon to use?
-	//link := fmt.Sprintf("https://github.com/%s/commit/%s/checks", repo, commit)
+	link := fmt.Sprintf("https://github.com/%s", repo,)
 	// Prepare message to send
 	msg := fmt.Sprintf(`
-	%s Run 
-	-----New %s-----   
+	Run %s
+	-----New %s [opened/closed/reopened/assigned]-----   
 	Person: 	[%s](https://github.com/%s) 
-	Repository 	*%s*
-	`, icon,event, person,person,repo )
+	Repository 	[%s]*%s*
+	`, icon,event, person,person,repo,link )
 
 	// Send to chat using Markdown format
 	_, err := c.SendMessage(chat, msg, tbot.OptParseModeMarkdown)
