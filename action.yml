@@ -11,6 +11,9 @@ inputs:
   status:
     description: 'Job status'
     required: true
+  i_body:
+    description: 'Boddy of the Issue'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
