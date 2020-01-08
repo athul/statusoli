@@ -72,7 +72,9 @@ func main() {
 		Issue Body:		%s
 
 		Link:		[%s](%s)
+
 		Triggered by:   *%s* 
+		
 		Event:		 *%s*
 		
 		`, icon, text, status, repo, inum, ititle, ibody, workflow, link, person, event)
@@ -91,7 +93,9 @@ func main() {
 		Comment:		%s
 
 		Link:		[%s](%s)
+
 		Triggered by:   *%s* 
+
 		Event:		 *%s*
 		
 		`, icon, text, status, repo, inum, ititle, icomment, workflow, link, person, event)
@@ -112,7 +116,9 @@ func main() {
 		PR Body:		%s
 
 		Link:		[%s](%s)
+
 		Triggered by:   *%s* 
+
 		Event:		 *%s*
 		
 		`, icon, text, status, repo, prnum, prstate, prtitle, prbody, workflow, link, person, event)
@@ -131,7 +137,9 @@ func main() {
 		Forks:		%s
 
 		Link:		[%s](%s)
+
 		Triggered by:   *%s* 
+
 		Event:		 *%s*
 		
 		`, icon, text, status, repo, stars, forks, workflow, link, person, event)
@@ -148,7 +156,9 @@ func main() {
 
 		Triggered by:   *%s* 
 
-		Event:		 *%s*`, icon, text, status, repo, workflow, link, person, event)
+		Event:		 *%s*
+		
+		`, icon, text, status, repo, workflow, link, person, event)
 	}
 
 	// Send to chat using Markdown format
