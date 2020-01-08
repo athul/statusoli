@@ -13,9 +13,9 @@ import (
 func main() {
 	// Just to do it a bit fancy
 	icons := map[string]string{
-		"failure":   "❗️❗️❗️",
-		"cancelled": "❕❕❕",
-		"success":   "✅✅✅",
+		"failure":   "❗️",
+		"cancelled": "❕",
+		"success":   "✅",
 	}
 	texts := map[string]string{
 		"issues":        "‼️‼️‼️",
@@ -60,8 +60,7 @@ func main() {
 	// Prepare message to send
 	if event == "issues" {
 		msg = fmt.Sprintf(`
-		%s
-		%s 
+		%s | %s 
 		
 		Status: 	*%s*
 		Repository:  	 %s 
@@ -80,8 +79,7 @@ func main() {
 	}
 	if event == "issue_comment" {
 		msg = fmt.Sprintf(`
-		%s
-		%s 
+		%s | %s  
 		
 		Status: 	*%s*
 		Repository:  	 %s 
@@ -101,8 +99,7 @@ func main() {
 
 	if event == "pull_request" {
 		msg = fmt.Sprintf(`
-		%s
-		%s 
+		%s | %s  
 		
 		Status: 	*%s*
 
@@ -123,8 +120,7 @@ func main() {
 
 	if event == "watch" {
 		msg = fmt.Sprintf(`
-		%s
-		%s
+		%s | %s 
 
 		Status: 	*%s*
 
@@ -142,13 +138,16 @@ func main() {
 	}
 	if event == "push" {
 		msg = fmt.Sprintf(`
-		%s
-		%s 
+		%s | %s 
 		
 		Status: 	*%s*
+
 		Repository:  	 %s 
+
 		Link:		[%s](%s)
+
 		Triggered by:   *%s* 
+
 		Event:		 *%s*`, icon, text, status, repo, workflow, link, person, event)
 	}
 
@@ -158,23 +157,3 @@ func main() {
 		log.Fatalf("unable to send message: %v", err)
 	}
 }
-
-/* STARGAZERS: ${{ github.event.repository.stargazers_count }}
-   17           FORKERS: ${{ github.event.repository.forks_count }}
-   18           IU_TITLE: ${{ github.event.issue.title }}
-   19           IU_NUM: ${{ github.event.issue.number }}
-   20           IU_ACTOR: ${{ github.event.issue.user.login }}
-   21           IU_BODY: ${{ github.event.issue.body }}
-   22           IU_COM: ${{github.event.comment.body}}
-   23           PR_STATE: ${{ github.event.action }}
-   24           PR_NUM: ${{ github.event.number }}
-   25           PR_TITLE: ${{ github.event.pull_request.title }}
-   26           PR_BODY: ${{ github.event.pull_request.body }} */
-/*   ✅✅✅
-അടിപൊളി മോനെ അത് വർക്ക് ആയി
-
-Status:  Success
-Repository:    athul/waka-box
-Link:  Update gist with WakaTime stats
-Triggered by:   athul
-Event:   schedule */
