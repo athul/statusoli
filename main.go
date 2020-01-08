@@ -56,10 +56,10 @@ func main() {
 	icon := icons[strings.ToLower(status)]
 	text := texts[strings.ToLower(event)] // which icon to use?
 	link := fmt.Sprintf("https://github.com/%s/commit/%s/checks", repo, commit)
+	var msg string
 	// Prepare message to send
-	switch event {
-	case "issues":
-		msg := fmt.Sprintf(`
+	if event == "issues" {
+		msg = fmt.Sprintf(`
 		%s
 		%s 
 		
@@ -77,8 +77,9 @@ func main() {
 		Event:		 *%s*
 		
 		`, icon, text, status, repo, inum, ititle, ibody, workflow, link, person, event)
-	case "issue_comment":
-		msg := fmt.Sprintf(`
+	}
+	if event == "issue_comment" {
+		msg = fmt.Sprintf(`
 		%s
 		%s 
 		
@@ -96,9 +97,10 @@ func main() {
 		Event:		 *%s*
 		
 		`, icon, text, status, repo, inum, ititle, icomment, workflow, link, person, event)
+	}
 
-	case "pull_request":
-		msg := fmt.Sprintf(`
+	if event == "pull_request" {
+		msg = fmt.Sprintf(`
 		%s
 		%s 
 		
@@ -117,9 +119,10 @@ func main() {
 		Event:		 *%s*
 		
 		`, icon, text, status, repo, prnum, prstate, prtitle, prbody, workflow, link, person, event)
+	}
 
-	case "watch":
-		msg := fmt.Sprintf(`
+	if event == "watch" {
+		msg = fmt.Sprintf(`
 		%s
 		%s
 
@@ -136,8 +139,9 @@ func main() {
 		Event:		 *%s*
 		
 		`, icon, text, status, repo, stars, forks, workflow, link, person, event)
-	case "push":
-		msg := fmt.Sprintf(`
+	}
+	if event == "push" {
+		msg = fmt.Sprintf(`
 		%s
 		%s 
 		
