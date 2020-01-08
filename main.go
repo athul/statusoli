@@ -63,13 +63,14 @@ func main() {
 		%s | %s 
 		
 		Status: 	*%s*
+
 		Repository:  	 %s 
 
-		Issue Number:  %s
+		Issue Number:  %s	| [%s]
 
 		Issue Title: 	%s
 
-		Issue Body:		%s
+		Issue Body:		*%s*
 
 		Link:		[%s](%s)
 
@@ -77,20 +78,21 @@ func main() {
 		
 		Event:		 *%s*
 		
-		`, icon, text, status, repo, inum, ititle, ibody, workflow, link, person, event)
+		`, icon, text, status, repo, inum, prstate, ititle, ibody, workflow, link, person, event)
 	}
 	if event == "issue_comment" {
 		msg = fmt.Sprintf(`
 		%s | %s  
 		
 		Status: 	*%s*
+
 		Repository:  	 %s 
 
-		Issue Number:  %s
+		Issue Number:  %s	| [%s]
 
 		Issue Title: 	%s
 
-		Comment:		%s
+		Comment:		*%s*
 
 		Link:		[%s](%s)
 
@@ -98,7 +100,7 @@ func main() {
 
 		Event:		 *%s*
 		
-		`, icon, text, status, repo, inum, ititle, icomment, workflow, link, person, event)
+		`, icon, text, status, repo, inum, prstate, ititle, icomment, workflow, link, person, event)
 	}
 
 	if event == "pull_request" {
@@ -109,11 +111,11 @@ func main() {
 
 		Repository:  	 %s 
 
-		PR Number:  %s 	%s
+		PR Number:  %s	| [%s]
 
 		PR Title: 	%s
 
-		PR Body:		%s
+		PR Body:		*%s*
 
 		Link:		[%s](%s)
 
@@ -132,7 +134,7 @@ func main() {
 
 		Repository:  	 %s 
 
-		Stars:		%s
+		Stars:		*%s*
 
 		Forks:		%s
 
