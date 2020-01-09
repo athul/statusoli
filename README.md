@@ -1,6 +1,6 @@
 # Statusoli 🤑
 
-Statusoli pings you on telegram about Build Updates and Star Updates to your Telegram account by a Bot you can create.
+Statusoli sends you on telegram about Repo Updates to your Telegram account by a Bot you can create.
 
 Create a chatbot with **botfather** bot in telegram. Get your chat id by speaking to **jsondumpbot** in telegram.
 
