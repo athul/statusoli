@@ -80,6 +80,24 @@ func main() {
 		
 		`, icon, text, status, repo, inum, prstate, ititle, ibody, workflow, link, person, event)
 	}
+	if event == "schedule" {
+		msg = fmt.Sprintf(`
+		%s | %s 
+		
+		Status: 	*%s*
+
+		Repository:  	 %s 
+
+		*This was run on Schedule*
+
+		Link:		[%s](%s)
+
+		Triggered by:   *%s* 
+		
+		Event:		 *%s*
+		
+		`, icon, text, status, repo, workflow, link, person, event)
+	}
 	if event == "issue_comment" {
 		msg = fmt.Sprintf(`
 		%s | %s  
