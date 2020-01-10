@@ -1,5 +1,8 @@
 # Statusoli 🤑
 
+**_Rather than putting the tag, use the latest commit id to improve security_**  
+eg:  `uses: athul/statusoli@37a2904`
+
 Statusoli sends you on telegram about Repo Updates to your Telegram account by a Bot you can create.
 
 Create a chatbot with **botfather** bot in telegram. Get your chat id by speaking to **jsondumpbot** in telegram.
@@ -22,10 +25,16 @@ You can add these details to the Repository Secrets by going to `<repo>/settings
 ```
 The `chat` is the chat id/channel id and you can get that by talking to the json dump bot. The `token` is the bot's API token and you can create a bot by speaking to Botfather bot in Telegram.    
 The Output will be as 
-- Push
+- Push   
 ![](/op1.png)
-- Stars
+- Stars   
 ![](/op2.png)
+- PR Opened    
+![](/op5.png)
+- Issues   
+![](/op3.png)
+- Issue/ PR Comments   
+![](/op4.png)
 
 
 -----
