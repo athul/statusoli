@@ -14,18 +14,6 @@ Since I hail from Kerela, and I like memes, Most of the notification text is in 
 ```yml
     - name: Statusoli
       uses: athul/statusoli@master
-      env:
-        STARGAZERS: ${{ github.event.repository.stargazers_count }}
-        FORKERS: ${{ github.event.repository.forks_count }}
-        IU_TITLE: ${{ github.event.issue.title }}
-        IU_NUM: ${{ github.event.issue.number }}
-        IU_ACTOR: ${{ github.event.issue.user.login }}
-        IU_BODY: ${{ github.event.issue.body }}
-        IU_COM: ${{github.event.comment.body}}
-        PR_STATE: ${{ github.event.action }}
-        PR_NUM: ${{ github.event.number }}
-        PR_TITLE: ${{ github.event.pull_request.title }}
-        PR_BODY: ${{ github.event.pull_request.body }}
       if: always()
       with:
         chat: ${{ secrets.chat }}
