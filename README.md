@@ -39,4 +39,20 @@ The Output will be as
 
 -----
 
-Don't forget to chat with your bot first by `/start`
+Don't forget to chat with your bot first by `/start`   
+
+Actions will only trigger on what you want to trigger. You might want to define all the triggers first. You can refer the workflow file of this repo for better guidance. or like this
+```yml
+name: Build and Notify
+on:
+  push:
+  pull_request:
+    types: [opened,closed]
+  issues:
+    types: [opened, closed, reopened]
+  issue_comment:
+    types: [created]
+  watch:
+    types: [started]
+jobs:
+```

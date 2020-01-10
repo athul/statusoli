@@ -1,4 +1,4 @@
-name: Build
+name: Build and Notify
 on:
   push:
   pull_request:
