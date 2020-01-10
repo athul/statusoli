@@ -9,7 +9,6 @@ Since it is your repo and it should only be limited to you. Thats why you need t
 You can add these details to the Repository Secrets by going to `<repo>/settings/secrets/`
 
 ## Notifications
-Since I hail from Kerela, and I like memes, Most of the notification text is in Malayalam like if it passed or failed.
 - You can use the simple notifier at the master branch or the release tag like 
 ```yml
     - name: Statusoli
@@ -22,7 +21,11 @@ Since I hail from Kerela, and I like memes, Most of the notification text is in 
 
 ```
 The `chat` is the chat id/channel id and you can get that by talking to the json dump bot. The `token` is the bot's API token and you can create a bot by speaking to Botfather bot in Telegram.    
-The Output will be as ![](/op1.png)
+The Output will be as 
+- Push
+![](/op1.png)
+- Stars
+![](/op2.png)
 
 
 -----
